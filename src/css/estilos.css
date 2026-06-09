@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E RESETS
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +18,7 @@ body {
 }
 
 main {
-    padding-top: 80px; /* Cria um espaço de segurança para o conteúdo não sumir atrás do menu */
+    padding-top: 80px;
 }
 
 a {
@@ -24,19 +27,52 @@ a {
     transition: 0.3s ease;
 }
 
+/* ==========================================================================
+   2. COMPONENTES GERAIS (BOTÕES)
+   ========================================================================== */
+.btn-primary {
+    background-color: #154360;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: radial-gradient(circle, #1b557a 0%, #154360 100%);
+    box-shadow: 0 0 15px rgba(27, 85, 122, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 6px;
+    border: 2px solid #154360;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background: radial-gradient(circle, #154360 0%, #0b0c10 100%);
+    box-shadow: 0 0 15px rgba(21, 67, 96, 0.3);
+}
+
+/* ==========================================================================
+   3. CABEÇALHO GLOBAL (MENU NAV)
+   ========================================================================== */
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
     background-color: #0b0c10;
-    
-    
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 .logo a:hover {
@@ -61,6 +97,29 @@ a {
     color: #ffffff;
 }
 
+
+.menu-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    padding: 5px;
+}
+
+.menu-hamburger .bar {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+/* ==========================================================================
+   4. PÁGINA: INÍCIO (HERO)
+   ========================================================================== */
 .hero-section {
     display: flex;
     align-items: center;
@@ -93,33 +152,6 @@ a {
     gap: 15px;
 }
 
-.btn-primary {
-    background-color: #154360;
-    color: #ffffff;
-    padding: 12px 28px;
-    border-radius: 6px;
-    font-weight: 600;
-}
-
-.btn-primary:hover {
-    background: radial-gradient(circle, #1b557a 0%, #154360 100%);
-    box-shadow: 0 0 15px rgba(27, 85, 122, 0.4);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: #ffffff;
-    padding: 12px 28px;
-    border-radius: 6px;
-    border: 2px solid #154360;
-    font-weight: 600;
-}
-
-.btn-secondary:hover {
-    background: radial-gradient(circle, #154360 0%, #0b0c10 100%);
-    box-shadow: 0 0 15px rgba(21, 67, 96, 0.3);
-}
-
 .hero-image {
     flex: 1;
     display: flex;
@@ -127,44 +159,15 @@ a {
 }
 
 .hero-image img {
-    max-width: 100%;
+    max-width: 70%;
     height: auto;
     border-radius: 12px;
     object-fit: cover;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.footer-container {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #000000;
-    color: #718096;
-    font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .hero-section {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-}
-
 /* ==========================================================================
-   PÁGINA: SOBRE
+   5. PÁGINA: SOBRE MIM & TECNOLOGIAS
    ========================================================================== */
 .about-section {
     display: flex;
@@ -181,7 +184,7 @@ a {
 }
 
 .about-image img {
-    max-width: 320px; /* Controla o tamanho máximo da imagem para ela não ficar gigante */
+    max-width: 320px;
     width: 100%;
     height: auto;
     border-radius: 12px;
@@ -189,7 +192,7 @@ a {
 }
 
 .about-content {
-    flex: 2; /* Faz o texto ocupar um espaço maior que a imagem proporcionalmente */
+    flex: 2;
 }
 
 .about-content h2 {
@@ -203,7 +206,6 @@ a {
     line-height: 1.8;
 }
 
-/* SEÇÃO DE TECNOLOGIAS (GRID) */
 .tech-section {
     padding: 40px 8% 80px 8%;
     text-align: center;
@@ -249,10 +251,143 @@ a {
     color: #ffffff;
 }
 
+/* ==========================================================================
+   6. PÁGINA: MEUS PROJETOS
+   ========================================================================== */
+.projects-section {
+    padding: 60px 8% 80px 8%;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #0f111a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(21, 67, 96, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(27, 85, 122, 0.3);
+    border-color: #154360;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #154360;
+}
+
+.project-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.project-info h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.project-info p {
+    font-size: 1rem;
+    color: #a0aec0;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.project-info .btn-primary,
+.project-info .btn-secondary {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   7. RODAPÉ GLOBAL (FOOTER)
+   ========================================================================== */
+.footer-container {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #000000;
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   8. REGRAS DE RESPONSIVIDADE INTERNACIONAIS (CELULAR)
+   ========================================================================== */
 @media (max-width: 768px) {
+
     .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 8%;
+    }
+
+    .menu-hamburger {
+        display: flex;
+    }
+
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: #0b0c10;
+        display: flex;
         flex-direction: column;
-        gap: 15px;
+        align-items: center;
+        gap: 20px;
+        padding-top: 40px;
+        transition: 0.3s ease;
+    }
+
+    .nav-menu a {
+        margin-left: 0;
+        font-size: 1.2rem;
+        width: 80%;
+        text-align: center;
+    }
+
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .menu-hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
     }
 
     .hero-section {
@@ -269,6 +404,11 @@ a {
         justify-content: center;
     }
 
+    .hero-image img {
+        max-width: 100%;
+    }
+
+
     .about-section {
         flex-direction: column;
         text-align: center;
@@ -277,4 +417,82 @@ a {
     .about-section img {
         max-width: 100%;
     }
+
+    .contact-form {
+        padding: 25px;
+    }
+}
+
+/* ==========================================================================
+   PÁGINA: CONTATO
+   ========================================================================== */
+.contact-section {
+    padding: 60px 8% 80px 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    background-color: #0f111a;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(21, 67, 96, 0.2);
+    width: 100%;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: left; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #a0aec0;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: #0b0c10;
+    border: 2px solid rgba(21, 67, 96, 0.4);
+    border-radius: 6px;
+    padding: 12px 15px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #154360;
+    box-shadow: 0 0 10px rgba(27, 85, 122, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-form .btn-primary {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    margin-top: 10px;
 }
